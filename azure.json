@@ -1,0 +1,9 @@
+﻿{
+    "operatingSystem": "Linux",
+    "duration": "PT2H",
+    "linux": {
+        "includedPackageClassifications": "Security",
+        "excludedPackageNameMasks": ["*kernel*", "grub*"],
+        "rebootSetting": "IfRequired"
+    }
+}
