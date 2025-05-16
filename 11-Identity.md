@@ -253,6 +253,31 @@ az role assignment create --assignee f54bd873-831c-4033-90de-7d7abf27d5fe --role
 ````
 ---
 
+````
+pip install azure-identity azure-keyvault-secrets
+
+
+from azure.identity import ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
+
+# Remplace par ton nom de Key Vault
+key_vault_name = "MyKeyVaultrenaud"
+kv_url = f"https://{key_vault_name}.vault.azure.net"
+
+# Création de l'identité managée (MSI)
+credential = ManagedIdentityCredential()
+
+# Connexion au Key Vault
+client = SecretClient(vault_url=kv_url, credential=credential)
+
+# Récupération du secret
+secret_name = "TestSecret"
+retrieved_secret = client.get_secret(secret_name)
+
+print(f"Valeur du secret '{secret_name}': {retrieved_secret.value}")
+
+````
+
 ### **Scénario 3 : Comparaison entre SPN et Identité Managée**
 
 1. **Service Principal** : Utilisé dans des scénarios où vous avez une application ou un service en dehors d'Azure, ou si vous devez gérer manuellement les secrets d'authentification. Par exemple, une application qui doit interagir avec Azure Key Vault depuis un serveur sur site.
