@@ -101,7 +101,7 @@ NB: Utilisez un nom unique pour votre keyvault
 
    ```
 
-![Texte alternatif](./images/i30.PNG)
+![Texte alternatif](./images/i30.png)
 ![Texte alternatif](./images/i31.png)
 
 
